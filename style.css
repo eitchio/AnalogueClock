@@ -18,12 +18,11 @@ html {
   .clock {
     width: 30rem;
     height: 30rem;
-    border:5px solid grey;
+    border:5px solid #aaaaaa;
     border-radius:50%;
     margin:50px auto;
     position: relative;
-    padding:2rem;
-    
+    padding:0;
   }
 
   .clock-face {
@@ -36,7 +35,7 @@ html {
   .hour-hand {
     width:35%;
     right:50%;
-    height:8px;
+    height:7px;
     background:black;
     position: absolute;
     top:50%;
@@ -48,7 +47,7 @@ html {
 
   .min-hand {
     width:50%;
-    height:6px;
+    height:5px;
     background:black;
     position: absolute;
     top:50%;
@@ -59,7 +58,7 @@ html {
   }
 
   .second-hand {
-    width:60%;
+    width:52%;
     right:50%;
     height:3px;
     background:red;
@@ -70,4 +69,134 @@ html {
     transition: all 0.05s;
     transition-timing-function: cubic-bezier(0.4, 1.13, 0.54, 0.91);
   }
+/*small circle in center of clock*/
+  .inner-face::before{
+    content: "";
+    width: 18px;
+    height: 18px;
+    border-radius: 18px;
+    margin-left: -9px;
+    margin-top: -7px;
+    background: black;
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0 0 30px gray
+  }
+
+  .shanghai {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 10rem;
+    height: 10rem;
+    background: white;
+    border:7px solid black;
+    border-radius:50%;
+    margin-top:50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+   
+  }
+
+  .shanghai-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-3px); /* account for the height of the clock hands */
+  }
+
+  .shanghai-hour-hand {
+    width:40%;
+    right:50%;
+    height:5px;
+    background:black;
+    position: absolute;
+    top:50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.4, 1.13, 0.54, 0.91);
+  }
+
+  .shanghai-min-hand {
+    width:60%;
+    right: 50%;
+    height:4px;
+    background:black;
+    position: absolute;
+    top:50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.4, 1.13, 0.54, 0.91);
+  }
+
+  .shanghai-second-hand {
+    width:60%;
+    right:50%;
+    height:3px;
+    background:transparent;
+    position: absolute;
+    top:50%;
+    transform-origin: 100%;
+    transform: rotate(90deg);
+    transition: all 0.05s;
+    transition-timing-function: cubic-bezier(0.4, 1.13, 0.54, 0.91);
+  }
+  .s-name {
+    font-family: 'Quattrocento Sans', sans-serif;
+    padding-top: 10px;
+    color: white  
+  }
+  .outer-face::before, .outer-face::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 105%;
+    background: black;
+    z-index: 0;
+    left: 50%;
+    margin-left: -5px;
+    margin-bottom: -5px;
+    top: 0
+    }
+
+.outer-face::after {
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg)
+    }
+  .inner-face-small {
+    position: relative;
+    width: 87%;
+    height: 87%;
+    background:white;
+    -moz-border-radius: 1000px;
+    -webkit-border-radius: 1000px;
+    border-radius: 1000px;
+    z-index: 1000;
+    left: 6%;
+    top: 9%
+    }  
+    /*small black circle in center of small clock*/
+    .inner-face-small::before{
+      content: "";
+      width: 14px;
+      height: 14px;
+      border-radius: 18px;
+      margin-left: -6px;
+      margin-top: -6px;
+      background: black;
+      position: absolute;
+      z-index: 1000;
+      top: 50%;
+      left: 50%;
+      
+    }
+    
+  
+
 
