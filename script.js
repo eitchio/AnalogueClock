@@ -28,3 +28,32 @@ function setDate() {
 
 setInterval(setDate,1000);
 
+const secondHandShanghai = document.querySelector('.shanghai-second-hand');
+const minHandShanghai = document.querySelector('.shanghai-min-hand');
+const hourHandShanghai = document.querySelector('.shanghai-hour-hand');
+const allSHands = document.querySelectorAll('.s-hand');
+
+function setDateS() {
+  const nowS = new Date();
+  
+  const secondsS = nowS.getSeconds();
+  const secondsDegreesS = ((secondsS/60) * 360) + 90;
+  secondHandShanghai.style.transform = `rotate(${secondsDegreesS}deg)`;
+
+  if(secondsDegreesS === 90) {
+    allSHands.forEach(hand => hand.style.transition = 'none')
+  } else {
+    allSHands.forEach(hand => hand.style.transition = '')
+  }
+        
+  const minutesS = nowS.getMinutes();
+  const minDegreesS = ((minutesS/60) * 360) + ((secondsS/60) * 6) + 90;
+  minHandShanghai.style.transform = `rotate(${minDegreesS}deg)`;
+
+  const hoursS = nowS.getUTCHours() + 8;
+  const hourDegreesS = ((hoursS/12) * 360 + ((minutesS/60) * 30)) + 90;  
+  hourHandShanghai.style.transform = `rotate(${hourDegreesS}deg)`;
+  
+};
+
+setInterval(setDateS,1000);
